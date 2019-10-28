@@ -12,6 +12,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { CommentsComponent } from './pages/comments/comments.component';
 import { AngularFireAuth } from '@angular/fire/auth';
 //import { ChartsModule } from 'ng2-charts/ng2-charts';
+// import { Chart } from 'chart.js'
 
 
 
