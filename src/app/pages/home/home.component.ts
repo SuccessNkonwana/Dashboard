@@ -41,6 +41,11 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
+  onDelete(key){
+    this.dataService.delete(key);
+    alert("Internet Cafe deleted");
+  }
+
   commentPage(item) {
     this.router.navigate(['/comments'], {
       queryParams: {
