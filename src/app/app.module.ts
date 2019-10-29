@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import {NgxPaginationModule} from 'ngx-pagination'; 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -12,10 +12,8 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { CommentsComponent } from './pages/comments/comments.component';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { ChartsModule } from 'ng2-charts';
-import { MatTableModule } from '@angular/material';
-import {NgxPaginationModule} from 'ngx-pagination';
-import {MatPaginatorModule} from '@angular/material/paginator';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
+import {FormsModule} from '@angular/forms';
 //import { ChartsModule } from 'ng2-charts/ng2-charts';
 // import { Chart } from 'chart.js'
 
@@ -38,9 +36,9 @@ const firebaseConfig = {
     CommentsComponent
   ],
   imports: [
-    BrowserModule, AngularFireModule.initializeApp(firebaseConfig),AngularFirestoreModule,ChartsModule,MatPaginatorModule,
-    AppRoutingModule,MatTableModule,NgxPaginationModule,
-    BrowserAnimationsModule
+    BrowserModule, AngularFireModule.initializeApp(firebaseConfig),AngularFirestoreModule,ChartsModule,ReactiveFormsModule,
+    FormsModule,NgxPaginationModule,
+    AppRoutingModule
   ],
   providers: [AngularFireAuth,],
   bootstrap: [AppComponent]

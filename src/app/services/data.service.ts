@@ -20,4 +20,7 @@ export class DataService {
   delete(key){
     this.db.doc('localCafe/' + key).delete();
   }
+  deleteComment(key){
+    this.db.doc('comments/' + key).delete();
+  }
 }

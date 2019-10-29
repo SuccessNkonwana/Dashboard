@@ -30,7 +30,10 @@ export class CommentsComponent implements OnInit {
     });
   }
 
-
+  // onDelete(key){
+  //   this.dataService.delete(key);
+  //   alert("Internet Cafe deleted");
+  // }
 
 
 }
