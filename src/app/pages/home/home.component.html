@@ -155,39 +155,58 @@
               <!-- User stories -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">User story 1</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">User Stories</h6>
                 </div>
                 <div class="card-body">
-                  <p>Add some quality, svg User stories to your project courtesy of unDraw, a constantly updated collection of beautiful svg images that you can use completely free and without attribution!</p>
+                    <h6 class="m-0 font-weight-bold" >Suggested List</h6>
+                  <p>As a user i would like to view the suggested list of internet cafes , 
+                    in order to see all available, So that i can select the nearest one.
+                  </p>
                   
-                </div>
+                
+                
+                    <h6 class="m-0 font-weight-bold ">Register and LogIn</h6>
+                    <p>As a user i would like to  to register and login in order to have 
+                        access to develop the app, So that i can view more information.
+                    </p>
+                    
+                  
+                 
+                      <h6 class="m-0 font-weight-bold ">Service</h6>
+                      <p>As a user i would like to view specific internet cafes , 
+                          in order to  see services they offer , So that i can compare their prices.
+                      </p>
+                      
+                    
+                    
+                        <h6 class="m-0 font-weight-bold ">Map</h6>
+                        <p>As a user i would like to do filtered search , in order to locate internet cafes in other areas, 
+                            So that i can easily access internet cafes from different locations.
+                        </p>
+                        
+                      </div>
               </div>
 
               <!-- Approach -->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">User story 2</h6>
-                </div>
-                <div class="card-body">
-                  <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce CSS bloat and poor page performance. Custom CSS classes are used to create custom components and custom utility classes.</p>
-                 </div>
-              </div>
 
             </div>
           </div>
 
         </div>
       <!-- graph -->
-      <!-- <ion-list-header color="light">Vertical Bar Chart</ion-list-header>
-  <ion-card class="welcome-card">
-    <ion-card-header>
-      <ion-card-subtitle>Number of Viewers per season for</ion-card-subtitle>
-      <ion-card-title>Game of Thrones</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <canvas #barChart></canvas>
-    </ion-card-content>
-  </ion-card> -->
+
+
+  <div>
+      <div style="display: inline">
+        <canvas baseChart
+                [datasets]="barChartData"
+                [labels]="barChartLabels"
+                [options]="barChartOptions"
+                [legend]="barChartLegend"
+                [chartType]="barChartType">
+        </canvas>
+      </div>
+    </div>
 
 
 

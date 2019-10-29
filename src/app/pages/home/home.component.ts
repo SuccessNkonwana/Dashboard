@@ -66,33 +66,17 @@ export class HomeComponent implements OnInit {
 
   //chat.js
 
-  // bars: any;
-  // colorArray: any;
-
-  // createBarChart() {
-  //   this.bars = new Chart(this.barChart.nativeElement, {
-  //     type: 'bar',
-  //     data: {
-  //       labels: ['S1', 'S2', 'S3', 'S4', 'S5', 'S6', 'S7', 'S8'],
-  //       datasets: [{
-  //         label: 'Viewers in millions',
-  //         data: [2.5, 3.8, 5, 6.9, 6.9, 7.5, 10, 17],
-  //         backgroundColor: 'rgb(38, 194, 129)', // array should have same number of elements as number of dataset
-  //         borderColor: 'rgb(38, 194, 129)',// array should have same number of elements as number of dataset
-  //         borderWidth: 1
-  //       }]
-  //     },
-  //     options: {
-  //       scales: {
-  //         yAxes: [{
-  //           ticks: {
-  //             beginAtZero: true
-  //           }
-  //         }]
-  //       }
-  //     }
-  //   });
-  // }
+  public barChartOptions = {
+    scaleShowVerticalLines: false,
+    responsive: true
+  };
+  public barChartLabels = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
+  public barChartType = 'bar';
+  public barChartLegend = true;
+  public barChartData = [
+    {data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A'},
+    {data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B'}
+  ];
 
 
 }
