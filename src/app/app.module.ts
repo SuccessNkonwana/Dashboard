@@ -12,6 +12,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { CommentsComponent } from './pages/comments/comments.component';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { ChartsModule } from 'ng2-charts';
+import { FormsModule } from '@angular/forms';
 //import { ChartsModule } from 'ng2-charts/ng2-charts';
 // import { Chart } from 'chart.js'
 
@@ -34,7 +35,7 @@ const firebaseConfig = {
     CommentsComponent
   ],
   imports: [
-    BrowserModule, AngularFireModule.initializeApp(firebaseConfig),AngularFirestoreModule,ChartsModule,
+    BrowserModule,FormsModule, AngularFireModule.initializeApp(firebaseConfig),AngularFirestoreModule,ChartsModule,
     AppRoutingModule
   ],
   providers: [AngularFireAuth,],
