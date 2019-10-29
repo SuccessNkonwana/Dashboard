@@ -11,6 +11,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 export class CommentsComponent implements OnInit {
   key: any;
   commentRef: any;
+  Timestamp;
 
   constructor(private route:ActivatedRoute,public afAuth: AngularFireAuth,private firestore:AngularFirestore) { }
 
@@ -21,7 +22,8 @@ export class CommentsComponent implements OnInit {
       this.key = params.key;
       console.log(this.key); 
 
-      
+      // this.uid = this.afAuth.auth.currentUser.uid;
+      // this.chatRef = this.firestore.collection('comments', ref => ref.orderBy('Timestamp').where('key', '==', this.key )).valueChanges()
       this.commentRef = this.firestore.collection('comments', ref => ref.orderBy('Timestamp').where('key', '==', this.key )).valueChanges()
 
 
