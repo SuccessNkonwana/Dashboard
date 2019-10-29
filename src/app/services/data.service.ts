@@ -17,4 +17,7 @@ export class DataService {
     return this.db.collection('users').valueChanges();
     
   }
+  delete(key){
+    this.db.doc('localCafe/' + key).delete();
+  }
 }
