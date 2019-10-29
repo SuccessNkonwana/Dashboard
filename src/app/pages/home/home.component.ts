@@ -3,6 +3,8 @@ import { DataService } from 'src/app/services/data.service';
 import { InternetCafe } from 'src/app/module/internetCafe';
 import { Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatTableDataSource} from '@angular/material/table';
 // import { Chart } from 'chart.js'
 
 @Component({
@@ -16,7 +18,9 @@ export class HomeComponent implements OnInit {
   cafes: any;
   users: any;
   barChart: any;
-  
+  config: any;
+  collection = { count: 60, data: [] };
+ 
   constructor(private dataService: DataService, private router: Router,private firestore:AngularFirestore) {
     this.dataService.getItemChanges().subscribe(data => {
       this.itemList = data.map(e => {
@@ -27,15 +31,32 @@ export class HomeComponent implements OnInit {
       });
       console.log(this.itemList);
 
+// paginator
+      for (var i = 0; i < this.itemList[0].count; i++) {
+        this.itemList[0].data.push(
+          {
+          id: i + 1,
+            value: "items number " + (i + 1)
+          }
+        );
+      }
+      this.config = {
+        itemsPerPage: 5,
+        currentPage: 1,
+        totalItems: this.itemList[0].count
+      };
     });
 
     this.dataService.getUserChanges().subscribe(users => {
       this.userList = users
+
+     
     }
     )
 
     this.users = this.firestore.collection('users').valueChanges();
-  }
+
+   }
 
 
   ngOnInit() {
@@ -84,4 +105,8 @@ export class HomeComponent implements OnInit {
   ];
 
 
+  pageChanged(event){
+    this.config.currentPage = event;
+  }
+ 
 }

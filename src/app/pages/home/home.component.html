@@ -17,15 +17,48 @@
         <div class="container-fluid">
 
           <!-- Content Row -->
-
+          <div class="container" >
+              <div class="row col-md-12 col-md-offset-2 custyle">
+                
+              <table  class="table table-striped custab "  >
+              <thead>
+              <!-- <a href="#" class="btn btn-primary btn-xs pull-right"><b>+</b> Add new categories</a> -->
+                  <tr class="m-0 font-weight-bold text-primary">
+                      <th>internet cafe name</th>
+                      <th>Address</th>
+                      <th>Email</th>
+                      <th>Phone</th>
+                      <th class="text-center">Action</th>
+                  </tr>
+              </thead >
+                      <tr *ngFor="let item of itemList | paginate :config ">
+                          <td>{{item.name}}</td>
+                          <td>{{item.address}}</td>
+                          <td>{{item.email}}</td>
+                          <td>{{item.phone}}</td>
+                          <td class="text-center"><a (click)="onDelete(item.key)" class="btn btn-light btn-xs"><span class="glyphicon glyphicon-remove"></span><i class="material-icons">
+                              delete
+                              </i></a></td>
+                          <td class="text-center"><a (click)="onUpdate(item.key)" class="btn btn-light  btn-xs"><span class="glyphicon glyphicon-remove"></span> <i class="material-icons">
+                              update
+                              </i></a></td>
+                          <td class="text-center"><a (click)="commentPage(item)" class="btn btn-light  btn-xs"><span class="glyphicon glyphicon-remove"></span> <i class="material-icons">
+                              comment
+                              </i></a></td>
+                      </tr>
+    </table>
+    <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+    
+              </div>
+          </div>
           
-                  <div class="row">
+                  <!-- <div class="row"> -->
             
                       <!-- Earnings (Monthly) Card Example -->
-                      <div class="col-xl-3 col-md-6 mb-4"  *ngFor="let item of itemList">
+                      <!-- <div class="col-xl-3 col-md-6 mb-4"  *ngFor="let item of itemList">
                         <div class="card border-left-primary shadow h-100 py-2">
                           <div class="card-body">
-                            <div class="row no-gutters align-items-center">
+                            <div class="row no-gutters align--center">
                               <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">{{item.name}}</div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">{{item.address}}</div>
@@ -39,7 +72,7 @@
                         </div>
                       </div>
           
-                    </div>
+                    </div> -->
             
 
           <!-- Content Row -->
@@ -50,7 +83,7 @@
             <div class="col-xl-4 col-lg-5">
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <div class="card-header py-3 d-flex flex-row align--center justify-content-between">
                   <h6 class="m-0 font-weight-bold text-primary">Registered internet cafe per user</h6>
                  
                 </div>
@@ -83,7 +116,7 @@
             <div class="col-xl-4 col-lg-5">
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <div class="card-header py-3 d-flex flex-row align--center justify-content-between">
                   <h6 class="m-0 font-weight-bold text-primary">List of registered users</h6>
                 
                 </div>
@@ -116,7 +149,7 @@
                 <div class="col-xl-6 col-lg-4">
                   <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
-                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <div class="card-header py-3 d-flex flex-row align--center justify-content-between">
                       <h6 class="m-0 font-weight-bold text-primary">Number of internet cafe per location</h6>
                       <div class="dropdown no-arrow">
                          
@@ -174,32 +207,8 @@
           </div>
 
         </div>
-        <div class="container" >
-          <div class="row col-md-12 col-md-offset-2 custyle">
-          <table class="table table-striped custab">
-          <thead>
-          <!-- <a href="#" class="btn btn-primary btn-xs pull-right"><b>+</b> Add new categories</a> -->
-              <tr class="m-0 font-weight-bold text-primary">
-                  <th>internet cafe name</th>
-                  <th>Address</th>
-                  <th>Email</th>
-                  <th>Phone</th>
-                  <th class="text-center">Action</th>
-              </tr>
-          </thead>
-                  <tr *ngFor="let item of itemList">
-                      <td>{{item.name}}</td>
-                      <td>{{item.address}}</td>
-                      <td>{{item.email}}</td>
-                      <td>{{item.phone}}</td>
-                      <td class="text-center"><a (click)="onDelete(item.key)" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
-                  </tr>
-                 
-          </table>
-          </div>
-      </div>
+       
       <!-- graph -->
-
 
   <div>
       <div style="display: inline">
