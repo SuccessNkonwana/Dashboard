@@ -23,8 +23,8 @@ export class DataService {
   delete(key){
     this.db.doc('localCafe/' + key).delete();
   }
-  update(objectA, key) {
+  update(item, key) {
     this.itemDoc = this.db.doc<InternetCafe>('localCafe/' + key);
-    this.itemDoc.update(objectA);
+    this.itemDoc.update(item);
   }
 }
