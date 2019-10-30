@@ -14,6 +14,8 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { ChartsModule } from 'ng2-charts';
 import { ReactiveFormsModule } from '@angular/forms';
 import {FormsModule} from '@angular/forms';
+import { ChartComponent } from './pages/chart/chart.component';
+// import { AngularFireDatabase} from 'angularfire2/database';
 //import { ChartsModule } from 'ng2-charts/ng2-charts';
 // import { Chart } from 'chart.js'
 
@@ -33,7 +35,8 @@ const firebaseConfig = {
     AppComponent,
     LoginComponent,
     HomeComponent,
-    CommentsComponent
+    CommentsComponent,
+    ChartComponent
   ],
   imports: [
     BrowserModule, AngularFireModule.initializeApp(firebaseConfig),AngularFirestoreModule,ChartsModule,ReactiveFormsModule,
