@@ -1,6 +1,6 @@
 .sidenav {
     height: 100%;
-    width: 160px;
+    width: 165px;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -13,7 +13,7 @@
   .sidenav a {
     padding: 6px 8px 6px 16px;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 20px;
     color: #111;
     display: block;
   }
@@ -31,4 +31,7 @@
   @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
+  }
+  .logo{
+    width: 160px;
   }
