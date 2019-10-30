@@ -1,9 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import {NgxPaginationModule} from 'ngx-pagination'; 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
+import { UpdateComponent } from './pages/update/update.component';
 // import { MDBBootstrapModulesPro, MDBSpinningPreloader } from 'ng-uikit-pro-standard';
 import {AccordionModule} from 'ng-uikit';
 import { HomeComponent } from './pages/home/home.component';
@@ -36,11 +37,11 @@ const firebaseConfig = {
     LoginComponent,
     HomeComponent,
     CommentsComponent,
-    ChartComponent
+    UpdateComponent
   ],
   imports: [
     BrowserModule, AngularFireModule.initializeApp(firebaseConfig),AngularFirestoreModule,ChartsModule,ReactiveFormsModule,
-    FormsModule,
+    FormsModule,NgxPaginationModule,
     AppRoutingModule
   ],
   providers: [AngularFireAuth,],

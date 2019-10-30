@@ -12,6 +12,7 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "~8.2.11",
+    "@angular/cdk": "~8.2.3",
     "@angular/common": "~8.2.11",
     "@angular/compiler": "~8.2.11",
     "@angular/core": "~8.2.11",
@@ -31,7 +32,11 @@
     "mdbootstrap": "^4.8.11",
     "ng-uikit": "^0.1.6",
     "ng2-charts": "^2.3.0",
+<<<<<<< HEAD
     "plotly.js": "^1.51.0",
+=======
+    "ngx-pagination": "^4.1.0",
+>>>>>>> 7e38101b3ecb6b8c0b9d010af361d4e8f4593167
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
