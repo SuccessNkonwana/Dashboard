@@ -1,0 +1,46 @@
+<!-- <p>comments works!</p>
+<div *ngFor="let chat of commentRef | async">
+    <p class="error"> {{chat.Message}}</p></div> -->
+    <div class="sidenav">
+        <img class="logo" src="assets/logo.png">
+        <a href="#home">Home</a>
+        <a href="#userstories">User stories</a>
+        <a href="#internetCafe">Internet cafes</a>
+        <a href="#statistics">Statistics</a>
+      </div>
+      
+      <div class="main">
+             
+
+    <div class="container" >
+        <div class="row col-md-12 col-md-offset-2 custyle">
+        <table class="table table-striped custab">
+        <thead>
+            <br>
+        <!-- <a href="#" class="btn btn-primary btn-xs pull-right"><b>+</b> Add new categories</a> -->
+            <tr class="m-0 font-weight-bold text-primary">
+                <th>Commenter</th>
+                <th>Comment</th>
+                <th>Date</th>
+               
+                <th class="text-center">Action</th>
+            </tr>
+        </thead>
+                <tr *ngFor="let comment of commentRef | async">
+                    <td><strong>{{comment.Name}}</strong></td>
+                    <td>{{comment.Message}}</td>
+                    <td>{{comment.Timestamp}}</td>
+                   
+                    <td class="text-center"><a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+                </tr>
+               
+        </table>
+        </div>
+    </div>
+</div>
+    <!-- <div *ngFor="let comment of commentRef | async">
+                         
+        <p class="com"> <strong>{{comment.Name}}</strong>{{comment.Timestamp}} :</p>
+        <p class="theComment">  {{comment.Message}}</p>
+        <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a>
+    </div> -->
