@@ -71,6 +71,9 @@ export class HomeComponent implements OnInit {
     this.dataService.delete(key);
     alert("Internet Cafe deleted");
   }
+  onUpdate(item){
+    this.router.navigate(['/update'], { queryParams:{key: item.key, name: item.name, address: item.address, email: item.email, phone: item.phone}})
+  }
 
   commentPage(item) {
     this.router.navigate(['/comments'], {

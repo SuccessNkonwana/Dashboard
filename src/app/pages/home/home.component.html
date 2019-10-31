@@ -1,24 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <div class="sidenav">
+<div class="sidenav">
     <img class="logo" src="assets/logo.png">
     
-    <a (click)="Internertcafes()">Internet cafes</a>
-    <a (click)="registeredcafes()">Registered internet cafes</a>
-    <a (click)="registeredusers()">Registered users</a>
+    <a (click)="Internertcafes()">Internet Cafes</a>
+    <a (click)="registeredcafes()">Registered Internet Cafes</a>
+    <a (click)="registeredusers()">Registered Users</a>
     <a (click)="locations()">Statistics</a>
    
-    <!-- <a href="#home">Home</a>
-    <a href="#userstories">User stories</a>
-    <a href="#internetCafe">Internet cafes</a>
-    <a href="#statistics">Statistics</a> -->
   </div>
   <div class="main">
 <body id="page-top">
- <!-- <div class="first">
 
- </div> -->
  <br>
         <div class="container-fluid">
    
@@ -45,10 +39,10 @@
                           <td class="text-center"><a (click)="onDelete(item.key)" class="btn btn-light btn-xs"><span class="glyphicon glyphicon-remove"></span><i class="material-icons">
                               delete
                               </i></a></td>
-                          <td class="text-center"><a (click)="onUpdate(item.key)" class="btn btn-light  btn-xs"><span class="glyphicon glyphicon-remove"></span> <i class="material-icons">
+                            <td class="text-center"><a (click)="onUpdate(item)" class="btn btn-light  btn-xs"><span class="glyphicon glyphicon-remove"></span> <i class="material-icons">
                               update
                               </i></a></td>
-                          <td class="text-center"><a (click)="commentPage(item)" class="btn btn-light  btn-xs"><span class="glyphicon glyphicon-remove"></span> <i class="material-icons">
+                            <td class="text-center"><a (click)="commentPage(item)" class="btn btn-light  btn-xs"><span class="glyphicon glyphicon-remove"></span> <i class="material-icons">
                               comment
                               </i></a></td>
                       </tr>
@@ -59,9 +53,8 @@
             </div>
 
           <!-- Content Row -->
-          <!-- <div class="second" *ngIf="registeredcafe"> -->
+          
           <div class="row" *ngIf="registeredcafe">
-
             <!-- Area Chart -->
             <div class="col-xl-6 col-lg-6">
               <div class="card shadow mb-4">
@@ -88,16 +81,14 @@
                                   </div>
                                   </div>                           
                           </div>                         
-                        </div>
-                       
+                      </div>
+                      </div>
                     </div>
-                  </div>
-                
+                    </div>
+                    <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
                 </div>
-                <pagination-controls (pageChange)="pageChanged1($event)"></pagination-controls>
-              </div>
             </div>
-          </div>
+            </div>
 
             <!-- Pie Chart -->
             <div class="col-xl-6 col-lg-6" *ngIf="registereduser">
@@ -146,7 +137,6 @@
                         <canvas id="myAreaChart"></canvas>
                       </div>
                     </div>
-                  </div>
                 </div>
               </div> -->
           <!-- </div> -->
@@ -165,9 +155,10 @@
                 [legend]="barChartLegend"
                 [chartType]="barChartType">
         </canvas>
-      </div>
-    </div>
+            </div>
+        </div>
 
-</body>
+    </body>
 </div>
+
 </html>
