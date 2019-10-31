@@ -58,25 +58,30 @@
   box-sizing: border-box;
 }
 
+/* Create two equal columns that floats next to each other */
+.column {
+  float: right;
+  width: 100%;
+  padding: 10px;
+margin:20px;
+margin-top:-4%;
+ 
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 .pagination>li>a, .pagination>li>span { border-radius: 50% !important;margin: 0 5px;}
-// .pagination {
-//   display: inline-block;
-// }
 
-// .pagination a {
-//   color: black;
-//   float: left;
-//   padding: 8px 16px;
-//   text-decoration: none;
-//   transition: background-color .3s;
-//   border: 1px solid #ddd;
-// }
 
-// .pagination a.active {
-//   background-color: #4CAF50;
-//   color: white;
-//   border: 1px solid #4CAF50;
-// }
+.table{
 
-// .pagination a:hover:not(.active) {background-color: #ddd;}
+width: 100%;
+
+}
+
+
 
