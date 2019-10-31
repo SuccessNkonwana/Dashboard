@@ -20,6 +20,11 @@ export class HomeComponent implements OnInit {
   barChart: any;
   config: any;
   collection = { count: 60, data: [] };
+
+  Internertcafe=true;
+  registeredcafe = true;
+  registereduser = true;
+  location = true;
  
   constructor(private dataService: DataService, private router: Router,private firestore:AngularFirestore) {
     this.dataService.getItemChanges().subscribe(data => {
@@ -111,5 +116,42 @@ export class HomeComponent implements OnInit {
   pageChanged(event){
     this.config.currentPage = event;
   }
- 
+  pageChanged1(event){
+    this.config.currentPage = event;
+  }
+  pageChanged2(event){
+    this.config.currentPage = event;
+  }
+
+  Internertcafes() { 
+    
+            this.registereduser=false;
+            this.registeredcafe=false;
+            this.location=false;
+          this.Internertcafe=true;
+
+  }
+  registeredcafes(){
+
+    this.registereduser=false;
+    this.registeredcafe=true;
+    this.location=false;
+  this.Internertcafe=false;
+  }
+  registeredusers(){
+    
+    this.registereduser=true;
+    this.registeredcafe=false;
+    this.location=false;
+  this.Internertcafe=false;
+
+  }
+locations(){
+  
+  this.registereduser=false;
+  this.registeredcafe=false;
+  this.location=true;
+this.Internertcafe=false;
+
+}
 }

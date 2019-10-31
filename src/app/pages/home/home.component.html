@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+
 
 <div class="sidenav">
     <img class="logo" src="assets/logo.png">
@@ -58,41 +58,10 @@
             <!-- Content Row -->
             <div class="container ">
                 <div class="row col-md-12 col-md-offset-2 custyle">
-<!-- 
-                    <table class="table table-striped custab "> -->
-                        <!-- <thead> -->
-                            <!-- <a href="#" class="btn btn-primary btn-xs pull-right"><b>+</b> Add new categories</a> -->
-                            <!-- <tr class="m-0 font-weight-bold text-primary">
-                                <th>Internet Cafe Name</th>
-                                <th>Address</th>
-                                <th>Email</th>
-                                <th>Phone</th>
-                                <th class="text-center">Action</th>
-                            </tr>
-                        </thead>
-                        <tr *ngFor="let item of itemList | paginate :config ">
-                            <td>{{item.name}}</td>
-                            <td>{{item.address}}</td>
-                            <td>{{item.email}}</td>
-                            <td>{{item.phone}}</td>
-                            <td class="text-center"><a (click)="onDelete(item.key)" class="btn btn-light btn-xs"><span class="glyphicon glyphicon-remove"></span><i class="material-icons">
-                              delete
-                              </i></a></td>
-                            <td class="text-center"><a (click)="onUpdate(item)" class="btn btn-light  btn-xs"><span class="glyphicon glyphicon-remove"></span> <i class="material-icons">
-                              update
-                              </i></a></td>
-                            <td class="text-center"><a (click)="commentPage(item)" class="btn btn-light  btn-xs"><span class="glyphicon glyphicon-remove"></span> <i class="material-icons">
-                              comment
-                              </i></a></td>
-                        </tr>
-                    </table> -->
-                    <!-- <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls> -->
 
-                </div>
-            </div>
-           >
-         
-
+        <div class="container-fluid">
+   
+      
             <!-- Content Row -->
 
             <div class="row">
@@ -130,15 +99,13 @@
                     </div>
                 </div>
 
-                <!-- Pie Chart -->
-                <div class="col-xl-6 col-lg-6">
+                <div class="col-xl-6 col-lg-6 + shift" >
                     <div class="card shadow mb-4">
-                        <!-- Card Header - Dropdown -->
+                     
                         <div class="card-header py-3 d-flex flex-row align--center justify-content-between">
                             <h6 class="m-0 font-weight-bold text-primary">List of registered users</h6>
-
                         </div>
-                        <!-- Card Body -->
+
                         <div class="card-body" *ngFor="let users of userList">
                             <div class="container">
                                 <div class="row">
@@ -154,48 +121,19 @@
                             </div>
 
                         </div>
-                    </div>
-                </div>
+                      
+    <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+    
+              </div>
             </div>
 
-            <!-- Content Row -->
-            <div class="row">
+       
+          
 
-
-
-                <!-- Area Chart -->
-                <div class="col-xl-6 col-lg-4">
-                    <div class="card shadow mb-4">
-                        <!-- Card Header - Dropdown -->
-                        <div class="card-header py-3 d-flex flex-row align--center justify-content-between">
-                            <h6 class="m-0 font-weight-bold text-primary">Number of internet cafe per location</h6>
-                            <div class="dropdown no-arrow">
-
-                            </div>
-                        </div>
-                        <!-- Card Body -->
-                        <div class="card-body">
-                            <div class="chart-area">
-                                <canvas id="myAreaChart"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-               
-
-              
-                    <!-- Approach -->
-
-                
             </div>
-
-        </div>
-
-   
-      <!-- graph -->
-
-
+          
+    
+    
   <div>
       <div style="display: inline">
         <canvas baseChart
@@ -209,18 +147,16 @@
     </div>
 
 
-</body>
+
 
         <!-- graph -->
 
         <div>
             <div style="display: inline">
                 <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType">
-        </canvas>
+     </canvas>
             </div>
         </div>
 
    
-</div>
 
-</html>
