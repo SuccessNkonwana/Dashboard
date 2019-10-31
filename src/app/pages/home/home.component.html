@@ -56,35 +56,13 @@
                 </div>
             </div>
 
-            <!-- <div class="row"> -->
-
-            <!-- Earnings (Monthly) Card Example -->
-            <!-- <div class="col-xl-3 col-md-6 mb-4"  *ngFor="let item of itemList">
-                        <div class="card border-left-primary shadow h-100 py-2">
-                          <div class="card-body">
-                            <div class="row no-gutters align--center">
-                              <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">{{item.name}}</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{item.address}}</div>
-                                <button (click)="commentPage(item)">Comments</button>
-                              </div>
-                              <div class="col-auto">
-                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-          
-                    </div> -->
-
-
+            
             <!-- Content Row -->
 
             <div class="row">
 
                 <!-- Area Chart -->
-                <div class="col-xl-4 col-lg-5">
+                <div class="col-xl-6 col-lg-5">
                     <div class="card shadow mb-4">
                         <!-- Card Header - Dropdown -->
                         <div class="card-header py-3 d-flex flex-row align--center justify-content-between">
@@ -117,7 +95,7 @@
                 </div>
 
                 <!-- Pie Chart -->
-                <div class="col-xl-4 col-lg-5">
+                <div class="col-xl-6 col-lg-5">
                     <div class="card shadow mb-4">
                         <!-- Card Header - Dropdown -->
                         <div class="card-header py-3 d-flex flex-row align--center justify-content-between">
@@ -147,71 +125,79 @@
             <!-- Content Row -->
             <div class="row">
 
-
-
-                <!-- Area Chart -->
+                <!-- pie chart for ethnicity statistics -->
                 <div class="col-xl-6 col-lg-4">
                     <div class="card shadow mb-4">
                         <!-- Card Header - Dropdown -->
                         <div class="card-header py-3 d-flex flex-row align--center justify-content-between">
-                            <h6 class="m-0 font-weight-bold text-primary">Number of internet cafe per location</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Ethnicity statistics of registered users</h6>
                             <div class="dropdown no-arrow">
 
                             </div>
                         </div>
                         <!-- Card Body -->
+                        <div class="col-xl-8 col-lg-4">
                         <div class="card-body">
                             <div class="chart-area">
-                                <canvas id="myAreaChart"></canvas>
+                                    
+                                            <canvas class="chart" id="chart" width="200" height="200"></canvas>
                             </div>
+                        </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-lg-6 mb-4">
+               <!-- Bar graph -->
+               <div class="col-xl-6 col-lg-4">
+                    <div class="card shadow mb-4">
+                        <!-- Card Header - Dropdown -->
+                        <div class="card-header py-3 d-flex flex-row align--center justify-content-between">
+                            <h6 class="m-0 font-weight-bold text-primary">Gender statistics of registered users</h6>
+                            <div class="dropdown no-arrow">
 
-                    <!-- User stories -->
-                    <div class="card shadow mb-4" id="userstories">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">User Stories</h6>
+                            </div>
                         </div>
+                        <!-- Card Body -->
+                        <div class="col-xl-8 col-lg-4">
                         <div class="card-body">
-                            <h6 class="m-0 font-weight-bold">Suggested List</h6>
-                            <p>As a user i would like to view the suggested list of internet cafes , in order to see all available, So that i can select the nearest one.
-                            </p>
-
-
-
-                            <h6 class="m-0 font-weight-bold ">Register and LogIn</h6>
-                            <p>As a user i would like to to register and login in order to have access to develop the app, So that i can view more information.
-                            </p>
-
-
-
-                            <h6 class="m-0 font-weight-bold ">Service</h6>
-                            <p>As a user i would like to view specific internet cafes , in order to see services they offer , So that i can compare their prices.
-                            </p>
-
-
-
-                            <h6 class="m-0 font-weight-bold ">Map</h6>
-                            <p>As a user i would like to do filtered search , in order to locate internet cafes in other areas, So that i can easily access internet cafes from different locations.
-                            </p>
-
+                            <div class="chart-area">
+                                            <canvas id="chart2" width="200" height="200"></canvas>
+                                      
+                            </div>
+                        </div>
                         </div>
                     </div>
-
-                    <!-- Approach -->
-
                 </div>
             </div>
 
         </div>
+<!-- line graph -->
+<div class="col-xl-6 col-lg-4">
+        <div class="card shadow mb-4">
+            <!-- Card Header - Dropdown -->
+            <div class="card-header py-3 d-flex flex-row align--center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">Ethnicity per gender statistics of registered users</h6>
+                <div class="dropdown no-arrow">
 
+                </div>
+            </div>
+            <!-- Card Body -->
+            <div class="col-xl-10 col-lg-4">
+            <div class="card-body">
+                <div class="chart-area">
+   
+                    <canvas id="chart3" width="200" height="200"></canvas> 
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
         <!-- graph -->
 
         <div>
+              
             <div style="display: inline">
+                
                 <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType">
         </canvas>
             </div>

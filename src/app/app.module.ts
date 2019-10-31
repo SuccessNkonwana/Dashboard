@@ -19,7 +19,8 @@ import { ChartComponent } from './pages/chart/chart.component';
 // import { AngularFireDatabase} from 'angularfire2/database';
 //import { ChartsModule } from 'ng2-charts/ng2-charts';
 // import { Chart } from 'chart.js'
-
+import {  HttpClientModule } from '@angular/common/http';
+import { ChartService } from './services/chart.service';
 
 
 const firebaseConfig = {
@@ -41,10 +42,11 @@ const firebaseConfig = {
   ],
   imports: [
     BrowserModule, AngularFireModule.initializeApp(firebaseConfig),AngularFirestoreModule,ChartsModule,ReactiveFormsModule,
-    FormsModule,NgxPaginationModule,
+    FormsModule,NgxPaginationModule,BrowserModule,
+    HttpClientModule,
     AppRoutingModule
   ],
-  providers: [AngularFireAuth,],
+  providers: [AngularFireAuth,ChartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
