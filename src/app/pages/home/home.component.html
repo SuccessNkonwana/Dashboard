@@ -3,11 +3,16 @@
 
   <div class="sidenav">
     <img class="logo" src="assets/logo.png">
+    
+    <a (click)="Internertcafes()">Internet cafes</a>
+    <a (click)="registeredcafes()">Registered internet cafes</a>
+    <a (click)="registeredusers()">Registered users</a>
+    <a (click)="locations()">Statistics</a>
    
-    <a href="#home">Home</a>
+    <!-- <a href="#home">Home</a>
     <a href="#userstories">User stories</a>
     <a href="#internetCafe">Internet cafes</a>
-    <a href="#statistics">Statistics</a>
+    <a href="#statistics">Statistics</a> -->
   </div>
   <div class="main">
 <body id="page-top">
@@ -15,12 +20,10 @@
 
  </div> -->
  <br>
-
-      
         <div class="container-fluid">
-
+   
           <!-- Content Row -->
-          <div class="container" >
+          <div class="container" *ngIf="Internertcafe" >
               <div class="row col-md-12 col-md-offset-2 custyle">
                 
               <table  class="table table-striped custab "  >
@@ -53,37 +56,14 @@
     <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
     
               </div>
-          </div>
-          
-                  <!-- <div class="row"> -->
-            
-                      <!-- Earnings (Monthly) Card Example -->
-                      <!-- <div class="col-xl-3 col-md-6 mb-4"  *ngFor="let item of itemList">
-                        <div class="card border-left-primary shadow h-100 py-2">
-                          <div class="card-body">
-                            <div class="row no-gutters align--center">
-                              <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">{{item.name}}</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{item.address}}</div>
-                                <button (click)="commentPage(item)">Comments</button>
-                              </div>
-                              <div class="col-auto">
-                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-          
-                    </div> -->
-            
+            </div>
 
           <!-- Content Row -->
-
-          <div class="row">
+          <!-- <div class="second" *ngIf="registeredcafe"> -->
+          <div class="row" *ngIf="registeredcafe">
 
             <!-- Area Chart -->
-            <div class="col-xl-4 col-lg-5">
+            <div class="col-xl-6 col-lg-6">
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align--center justify-content-between">
@@ -92,7 +72,7 @@
                 </div>
                 <!-- Card Body -->
                 
-                <div class="card-body" *ngFor="let users of userList">
+                <div class="card-body" *ngFor="let users of userList | paginate :config ">
                   <div class="chart-area">
                    
                     <div class="container">
@@ -109,14 +89,18 @@
                                   </div>                           
                           </div>                         
                         </div>
+                       
                     </div>
                   </div>
+                
                 </div>
+                <pagination-controls (pageChange)="pageChanged1($event)"></pagination-controls>
               </div>
             </div>
+          </div>
 
             <!-- Pie Chart -->
-            <div class="col-xl-4 col-lg-5">
+            <div class="col-xl-6 col-lg-6" *ngIf="registereduser">
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align--center justify-content-between">
@@ -124,7 +108,7 @@
                 
                 </div>
                 <!-- Card Body -->
-                <div class="card-body"*ngFor="let users of userList">
+                <div class="card-body"*ngFor="let users of userList | paginate :config">
                     <div class="container">
                         <div class="row">
                           <div class="col-sm">
@@ -137,82 +121,41 @@
                         </div>
                       
                       </div>
-                  
                 </div>
+                <pagination-controls (pageChange)="pageChanged2($event)"></pagination-controls>
               </div>
             </div>
-          </div>
 
           <!-- Content Row -->
-          <div class="row">
-
-
+          <!-- <div class="fourth" *ngIf="locations"> -->
+          <!-- <div class="row" *ngIf="locations"> -->
 
                 <!-- Area Chart -->
-                <div class="col-xl-6 col-lg-4">
-                  <div class="card shadow mb-4">
+                <!-- <div class="col-xl-6 col-lg-4" >
+                  <div class="card shadow mb-4"> -->
                     <!-- Card Header - Dropdown -->
-                    <div class="card-header py-3 d-flex flex-row align--center justify-content-between">
+                    <!-- <div class="card-header py-3 d-flex flex-row align--center justify-content-between">
                       <h6 class="m-0 font-weight-bold text-primary">Number of internet cafe per location</h6>
                       <div class="dropdown no-arrow">
                          
                       </div>
-                    </div>
+                    </div> -->
                     <!-- Card Body -->
-                    <div class="card-body">
+                    <!-- <div class="card-body">
                       <div class="chart-area">
                         <canvas id="myAreaChart"></canvas>
                       </div>
                     </div>
                   </div>
                 </div>
-
-            <div class="col-lg-6 mb-4">
-
-              <!-- User stories -->
-              <div class="card shadow mb-4" id="userstories">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">User Stories</h6>
-                </div>
-                <div class="card-body">
-                    <h6 class="m-0 font-weight-bold" >Suggested List</h6>
-                  <p>As a user i would like to view the suggested list of internet cafes , 
-                    in order to see all available, So that i can select the nearest one.
-                  </p>
-                  
-                
-                
-                    <h6 class="m-0 font-weight-bold ">Register and LogIn</h6>
-                    <p>As a user i would like to  to register and login in order to have 
-                        access to develop the app, So that i can view more information.
-                    </p>
-                    
-                  
-                 
-                      <h6 class="m-0 font-weight-bold ">Service</h6>
-                      <p>As a user i would like to view specific internet cafes , 
-                          in order to  see services they offer , So that i can compare their prices.
-                      </p>
-                      
-                    
-                    
-                        <h6 class="m-0 font-weight-bold ">Map</h6>
-                        <p>As a user i would like to do filtered search , in order to locate internet cafes in other areas, 
-                            So that i can easily access internet cafes from different locations.
-                        </p>
-                        
-                      </div>
-              </div>
-
+              </div> -->
+          <!-- </div> -->
               <!-- Approach -->
-
+              
             </div>
-          </div>
-
-        </div>
-       
+          
       <!-- graph -->
-
+    
   <div>
       <div style="display: inline">
         <canvas baseChart
