@@ -20,12 +20,14 @@ export class HomeComponent implements OnInit {
   barChart: any;
   config: any;
   collection = { count: 60, data: [] };
-
+  dataSource = new MatTableDataSource<InternetCafe>();
   Internertcafe=true;
   registeredcafe = true;
   registereduser = true;
   location = true;
- 
+  // home = false;
+
+  loadedGoalList: any[];
   constructor(private dataService: DataService, private router: Router,private firestore:AngularFirestore) {
     this.dataService.getItemChanges().subscribe(data => {
       this.itemList = data.map(e => {
@@ -51,20 +53,44 @@ export class HomeComponent implements OnInit {
         totalItems: this.itemList[0].count
       };
     });
-
     this.dataService.getUserChanges().subscribe(users => {
-      this.userList = users
-
-     
-    }
+      this.userList = users}
     )
-
     this.users = this.firestore.collection('users').valueChanges();
-
    }
+  //  initializeItems(): void {
+  //   this.itemList = this.loadedGoalList;
+  // }
 
+   filterList(evt) {
+    // this.initializeItems();
+  
+    const searchTerm = evt.srcElement.value;
+  
+    if (!searchTerm) {
+      return;
+    }
+  
+    this.itemList = this.itemList.filter(data => {
+      if (data.name ) {
+        if (data.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1) {
+          return true;
+        }
+        return false;
+      }
+    });
+  }
+  //  doFilter = (itemList) => {
+  // this.dataSource.filter = itemList.trim().toLocaleLowerCase();
+  // console.log(this.dataSource.filter)
+  // }
 
   ngOnInit() {
+    this.firestore.collection(`localCafe`).valueChanges()
+    .subscribe(itemList => {
+      this.itemList = itemList;
+     
+  });
   }
 
   onDelete(key){
@@ -153,5 +179,12 @@ locations(){
   this.location=true;
 this.Internertcafe=false;
 
+}
+Home(){
+  // this.home=true;
+  this.registereduser=true;
+  this.registeredcafe=true;
+  this.location=true;
+this.Internertcafe=true;
 }
 }
