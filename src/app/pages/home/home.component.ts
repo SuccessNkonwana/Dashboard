@@ -405,9 +405,9 @@ export class HomeComponent implements OnInit {
   pageChanged1(event) {
     this.config.currentPage = event;
   }
-  // pageChanged2(event){
-  //   this.config.currentPage = event;
-  // }
+  pageChanged2(event){
+    this.config.currentPage = event;
+  }
 
   Internertcafes() {
 
