@@ -15,6 +15,8 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { ChartsModule } from 'ng2-charts';
 import { ReactiveFormsModule } from '@angular/forms';
 import {FormsModule} from '@angular/forms';
+import { ChartComponent } from './pages/chart/chart.component';
+// import { AngularFireDatabase} from 'angularfire2/database';
 //import { ChartsModule } from 'ng2-charts/ng2-charts';
 // import { Chart } from 'chart.js'
 import {
@@ -52,6 +54,8 @@ import {
   MatTooltipModule,
 } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import {  HttpClientModule } from '@angular/common/http';
+import { ChartService } from './services/chart.service';
 
 
 const firebaseConfig = {
@@ -69,7 +73,8 @@ const firebaseConfig = {
     LoginComponent,
     HomeComponent,
     CommentsComponent,
-    UpdateComponent
+    UpdateComponent,
+    ChartComponent
 
   ],
   imports: [
@@ -106,9 +111,11 @@ const firebaseConfig = {
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
+    FormsModule,NgxPaginationModule,BrowserModule,
+    HttpClientModule,
     AppRoutingModule
   ],
-  providers: [AngularFireAuth,],
+  providers: [AngularFireAuth,ChartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,19 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from 'src/app/services/data.service';
+import * as Chart from 'chart.js';
 import { InternetCafe } from 'src/app/module/internetCafe';
+import { DataService } from 'src/app/services/data.service';
 import { Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatTableDataSource } from '@angular/material/table';
-import { Chart } from 'chart.js'
-import { ChartService } from 'src/app/services/chart.service';
+import { MatTableDataSource } from '@angular/material';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-chart',
+  templateUrl: './chart.component.html',
+  styleUrls: ['./chart.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class ChartComponent implements OnInit {
+
   itemList: any[];
   userList: any[];
   cafes: any;
@@ -450,3 +449,4 @@ this.search = true;
     this.search = true;
   }
 }
+
