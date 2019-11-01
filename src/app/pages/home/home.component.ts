@@ -28,6 +28,12 @@ export class HomeComponent implements OnInit {
   girl: number=0;
   other: number=0;
 
+
+  Internertcafe=true;
+  registeredcafe = true;
+  registereduser = true;
+  location = true;
+ 
   constructor(private dataService: DataService, private router: Router,private firestore:AngularFirestore) {
     this.dataService.getItemChanges().subscribe(data => {
       this.itemList = data.map(e => {
@@ -337,5 +343,42 @@ options: {
   pageChanged(event){
     this.config.currentPage = event;
   }
- 
+  pageChanged1(event){
+    this.config.currentPage = event;
+  }
+  pageChanged2(event){
+    this.config.currentPage = event;
+  }
+
+  Internertcafes() { 
+    
+            this.registereduser=false;
+            this.registeredcafe=false;
+            this.location=false;
+          this.Internertcafe=true;
+
+  }
+  registeredcafes(){
+
+    this.registereduser=false;
+    this.registeredcafe=true;
+    this.location=false;
+  this.Internertcafe=false;
+  }
+  registeredusers(){
+    
+    this.registereduser=true;
+    this.registeredcafe=false;
+    this.location=false;
+  this.Internertcafe=false;
+
+  }
+locations(){
+  
+  this.registereduser=false;
+  this.registeredcafe=false;
+  this.location=true;
+this.Internertcafe=false;
+
+}
 }
