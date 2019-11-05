@@ -41,6 +41,7 @@ export class HomeComponent implements OnInit {
   itemload: any[];
   loadedGoalList: any[];
   itemList1: any;
+  configUser: { itemsPerPage: number; currentPage: number; totalItems: any; };
   constructor(private dataService: DataService, private router: Router, private firestore: AngularFirestore) {
     this.dataService.getItemChanges().subscribe(data => {
       this.itemList = data.map(e => {
@@ -70,22 +71,15 @@ export class HomeComponent implements OnInit {
         currentPage: 1,
         totalItems: this.itemList[0].count
       };
-      for (var i = 0; i < this.userList[0].count; i++) {
-        this.userList[0].data.push(
-          {
-            id: i + 1,
-            value: "items number " + (i + 1)
-          }
-        );
-      }
-      this.config1 = {
+
+    });
+    this.dataService.getUserChanges().subscribe(users => {
+      this.userList = users
+      this.configUser = {
         itemsPerPage: 5,
         currentPage: 1,
         totalItems: this.userList[0].count
       };
-    });
-    this.dataService.getUserChanges().subscribe(users => {
-      this.userList = users
     }
     )
     this.users = this.firestore.collection('users').valueChanges();
