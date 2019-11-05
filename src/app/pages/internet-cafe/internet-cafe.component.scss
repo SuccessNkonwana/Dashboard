@@ -22,7 +22,6 @@
         background-color: #689ACA;
         overflow-x: hidden;
         padding-top: 20px;
-        display: block;
       }
       
       .sidenav a {
@@ -35,7 +34,6 @@
       
       .sidenav a:hover {
         color: #f1f1f1;
-        display: block;
       }
       
       .main {
@@ -51,8 +49,6 @@
       }
 .logo{
   width: 160px;
-  
-
 }
 .first{
   height: 30px;
@@ -61,30 +57,7 @@
       * {
   box-sizing: border-box;
 }
-// .container-fluid{
-//    width: 1500px;
-//  margin-right: 50px;
-// }
 
-// .grid{
-//   height: 50px;
-//   width: 50px
-// }
-mat-toolbar{
-  background-color: #689ACA;
-  text-align: center;
-  position: absolute;
-}
-
-h1{
-  background-color: #689ACA;
-  color: black;
-  text-align: center;
-  position: absolute;
-}
-.container-fluid{
-  padding-top: 50px
-}
 /* Create two equal columns that floats next to each other */
 .column {
   float: right;
@@ -113,13 +86,6 @@ width: 100%;
 
 width: 500ypx;
 }
-.search{
-  padding-left: 1%;
-  padding-right: 3%;
-}
-.theBody{
 
-  padding:2%
-}
 
 

@@ -12,35 +12,30 @@ import { MatTableDataSource } from '@angular/material';
   styleUrls: ['./chart.component.scss']
 })
 export class ChartComponent implements OnInit {
-
   itemList: any[];
   userList: any[];
   cafes: any;
   users: any;
   barChart: any;
   config: any;
-  config1: any;
   collection = { count: 60, data: [] };
-  dataSource = new MatTableDataSource<InternetCafe>();
-  chart: any = [];
-  dlist = [];
+  chart:any = [];
+  dlist =[];
   item: any;
-  boy: number = 0;
-  girl: number = 0;
-  other: number = 0;
-  item1: any;
+  boy: number=0;
+  girl: number=0;
+  other: number=0;
 
-  Internertcafe = true;
+
+  Internertcafe=true;
   registeredcafe = true;
   registereduser = true;
-  statistic = true;
-  search = true
-  // home = false;
-
+  location = true;
   itemload: any[];
-  loadedGoalList: any[];
-  itemList1: any;
-  constructor(private dataService: DataService, private router: Router, private firestore: AngularFirestore) {
+  statistic: boolean;
+  search: boolean;
+ 
+  constructor(private dataService: DataService, private router: Router,private firestore:AngularFirestore) {
     this.dataService.getItemChanges().subscribe(data => {
       this.itemList = data.map(e => {
         return {
@@ -49,17 +44,12 @@ export class ChartComponent implements OnInit {
         } as InternetCafe;
       });
       // console.log(this.itemList);
-      this.itemload = data.map(e => {
-        return {
-          key: e.payload.doc.id,
-          ...e.payload.doc.data()
-        } as InternetCafe;
-      });
-      // paginator
+
+// paginator
       for (var i = 0; i < this.itemList[0].count; i++) {
         this.itemList[0].data.push(
           {
-            id: i + 1,
+          id: i + 1,
             value: "items number " + (i + 1)
           }
         );
@@ -69,46 +59,30 @@ export class ChartComponent implements OnInit {
         currentPage: 1,
         totalItems: this.itemList[0].count
       };
-      for (var i = 0; i < this.userList[0].count; i++) {
-        this.userList[0].data.push(
-          {
-            id: i + 1,
-            value: "items number " + (i + 1)
-          }
-        );
-      }
-      this.config1 = {
-        itemsPerPage: 5,
-        currentPage: 1,
-        totalItems: this.userList[0].count
-      };
     });
+
     this.dataService.getUserChanges().subscribe(users => {
       this.userList = users
+
+     
     }
     )
-    this.users = this.firestore.collection('users').valueChanges();
+
+    // this.users = this.firestore.collection('users').valueChanges();
+    // console.log(this.users)
+   
   }
-  //  initializeItems(): void {
-  //   this.itemList = this.loadedGoalList;
-  // }
 
-
-  //  doFilter = (itemList) => {
-  // this.dataSource.filter = itemList.trim().toLocaleLowerCase();
-  // console.log(this.dataSource.filter)
-  // }
-  f = [];
-  x;
-  race;
-  gender;
-  b: number = 0;
-  w: number = 0;
-  c: number = 0;
-  mw: number = 0; fw: number = 0; ow: number = 0;
-  mc: number = 0; fc: number = 0; oc: number = 0;
-  mb: number = 0; fb: number = 0; ob: number = 0;
-
+f=[];
+x;
+race;
+gender;
+b: number = 0;
+w: number = 0;
+c: number = 0;
+mw: number=0;fw: number=0;ow: number=0;
+mc: number=0;fc: number=0;oc: number=0;
+mb: number=0;fb: number=0;ob: number=0;
   ngOnInit() {
     this.firestore.collection(`localCafe`).valueChanges()
       .subscribe(itemList => {
