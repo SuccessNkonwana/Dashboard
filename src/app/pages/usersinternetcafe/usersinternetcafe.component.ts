@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import * as Chart from 'chart.js';
 import { DataService } from 'src/app/services/data.service';
 import { Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
-import * as Chart from 'chart.js';
 import { InternetCafe } from 'src/app/module/internetCafe';
 
 @Component({
-  selector: 'app-chart',
-  templateUrl: './chart.component.html',
-  styleUrls: ['./chart.component.scss']
+  selector: 'app-usersinternetcafe',
+  templateUrl: './usersinternetcafe.component.html',
+  styleUrls: ['./usersinternetcafe.component.scss']
 })
-export class ChartComponent implements OnInit {
+export class UsersinternetcafeComponent implements OnInit {
   itemList: any[];
   userList: any[];
   cafes: any;
@@ -378,4 +378,5 @@ locations(){
 this.Internertcafe=false;
 
 }
+
 }

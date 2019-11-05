@@ -1,1 +1,92 @@
-<p>chart works!</p>
+<!DOCTYPE html>
+
+
+<div class="sidenav">
+    <img class="logo" src="assets/logo.png">
+
+    <a routerLink="/home">Home</a>
+    <a href="#userstories">User stories</a>
+    <a href="#internetCafe">Internet cafes</a>
+    <a routerLink="/chart">Statistics</a>
+</div>
+<div class="main">
+
+    <body id="page-top">
+            <!-- Content Row -->
+            <div class="row">
+
+                <!-- pie chart for ethnicity statistics -->
+                <div class="col-xl-6 col-lg-4">
+                    <div class="card shadow mb-4">
+                        <!-- Card Header - Dropdown -->
+                        <div class="card-header py-3 d-flex flex-row align--center justify-content-between">
+                            <h6 class="m-0 font-weight-bold text-primary">Ethnicity statistics of registered users</h6>
+                            <div class="dropdown no-arrow">
+
+                            </div>
+                        </div>
+                        <!-- Card Body -->
+                        <div class="col-xl-8 col-lg-4">
+                        <div class="card-body">
+                            <div class="chart-area">
+                                    
+                                            <canvas class="chart" id="chart" width="200" height="200"></canvas>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+               <!-- Bar graph -->
+               <div class="col-xl-6 col-lg-4">
+                    <div class="card shadow mb-4">
+                        <!-- Card Header - Dropdown -->
+                        <div class="card-header py-3 d-flex flex-row align--center justify-content-between">
+                            <h6 class="m-0 font-weight-bold text-primary">Gender statistics of registered users</h6>
+                            <div class="dropdown no-arrow">
+
+                            </div>
+                        </div>
+                        <!-- Card Body -->
+                        <div class="col-xl-8 col-lg-4">
+                        <div class="card-body">
+                            <div class="chart-area">
+                                            <canvas id="chart2" width="200" height="200"></canvas>
+                                      
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+       
+<!-- line graph -->
+<div class="col-xl-6 col-lg-4">
+        <div class="card shadow mb-4">
+            <!-- Card Header - Dropdown -->
+            <div class="card-header py-3 d-flex flex-row align--center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">Ethnicity per gender statistics of registered users</h6>
+                <div class="dropdown no-arrow">
+
+                </div>
+            </div>
+            <!-- Card Body -->
+            <div class="col-xl-10 col-lg-4">
+            <div class="card-body">
+                <div class="chart-area">
+   
+                    <canvas id="chart3" width="200" height="200"></canvas> 
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+        <!-- graph -->
+
+</body>
+    
+            </div>
+        
+   
+

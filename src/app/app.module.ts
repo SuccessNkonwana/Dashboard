@@ -21,7 +21,11 @@ import { ChartComponent } from './pages/chart/chart.component';
 // import { Chart } from 'chart.js'
 import {  HttpClientModule } from '@angular/common/http';
 import { ChartService } from './services/chart.service';
-
+import { InternetCafeComponent } from './pages/internet-cafe/internet-cafe.component';
+import { UsersinternetcafeComponent } from './pages/usersinternetcafe/usersinternetcafe.component';
+import {enableProdMode} from '@angular/core'
+// import {enableProdMode} from 'angular2/core';
+enableProdMode();
 
 const firebaseConfig = {
   apiKey: "AIzaSyA-kTR7fRDa0qxM0hBMROLG8APChD8RTxY",
@@ -38,7 +42,10 @@ const firebaseConfig = {
     LoginComponent,
     HomeComponent,
     CommentsComponent,
-    UpdateComponent
+    UpdateComponent,
+    ChartComponent,
+    InternetCafeComponent,
+    UsersinternetcafeComponent
   ],
   imports: [
     BrowserModule, AngularFireModule.initializeApp(firebaseConfig),AngularFirestoreModule,ChartsModule,ReactiveFormsModule,
