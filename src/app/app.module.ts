@@ -56,7 +56,11 @@ import {
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {  HttpClientModule } from '@angular/common/http';
 import { ChartService } from './services/chart.service';
-
+import { InternetCafeComponent } from './pages/internet-cafe/internet-cafe.component';
+import { UsersinternetcafeComponent } from './pages/usersinternetcafe/usersinternetcafe.component';
+import {enableProdMode} from '@angular/core'
+// import {enableProdMode} from 'angular2/core';
+enableProdMode();
 
 const firebaseConfig = {
   apiKey: "AIzaSyA-kTR7fRDa0qxM0hBMROLG8APChD8RTxY",

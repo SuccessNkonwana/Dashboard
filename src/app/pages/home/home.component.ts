@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit {
   configUser: { itemsPerPage: number; currentPage: number; totalItems: any; };
   constructor(private dataService: DataService, private router: Router, private firestore: AngularFirestore) {
     this.dataService.getItemChanges().subscribe(data => {
-      this.itemList = data.map(e => {
+      this.itemList1 = data.map(e => {
         return {
           key: e.payload.doc.id,
           ...e.payload.doc.data()
@@ -341,8 +341,11 @@ export class HomeComponent implements OnInit {
     }
 
     this.itemList = this.itemList.filter(data => {
-      if (data.name && searchTerm) {
+      if (data.name|| data.address && searchTerm) {
         if (data.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1) {
+          return true;
+        }
+        if (data.address.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1) {
           return true;
         }
         return false;
@@ -359,11 +362,7 @@ export class HomeComponent implements OnInit {
   }
 
   commentPage(item) {
-    this.router.navigate(['/comments'], {
-      queryParams: {
-        key: item.key
-      }
-    })
+    this.router.navigate(['/comments'], {queryParams: {key: item.key} })
 
   }
 

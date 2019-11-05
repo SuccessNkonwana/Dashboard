@@ -1,36 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
-    <mat-toolbar>
-        <!-- <h1>Internet Cafe App</h1> -->
-        
-      </mat-toolbar>
+
+
 <div class="sidenav">
     <img class="logo" src="assets/logo.png">
-    <br><br><br>
-    <a (click)="Home()">Home</a>
-    <a (click)="Internertcafes()">Internet Cafes</a>
-    <a (click)="registeredcafes()">Registered Users</a>
-    <a (click)="statistics()">Statistics</a>
-   
-  </div>
-  <div class="main">
-<body id="page-top">
 
- <br>
- 
-        <div class="container-fluid"></div>
+    <a routerLink="/home">Home</a>
+    <a routerLink="/internetCafe">Internet cafes</a>
+    <a routerLink="/chart">Statistics</a>
+</div>
+<div class="main">
+
+    <body id="page-top">
+        <!-- <div class="first">
+
+ </div> -->
       
-      
- <div fxLayout fxLayoutAlign="center center" class="search" *ngIf="search">
-    <mat-form-field fxFlex="100%">
-      <input matInput type="text"  (keyup)="filterList($event)" placeholder="Search">
-    </mat-form-field>
-  </div>
-        <div class="row" *ngIf="Internertcafe">
-    
+        
+        <div class="row">
           <div class="column" >
             <table class="table table-striped custab ">
                 <thead>
+                    <!-- <a href="#" class="btn btn-primary btn-xs pull-right"><b>+</b> Add new categories</a> -->
                     <tr class="m-0 font-weight-bold text-primary">
                         <th>Internet Cafe Name</th>
                         <th>Address</th>
@@ -39,7 +29,7 @@
                         <th class="text-center">Action</th>
                     </tr>
                 </thead>
-                <tr *ngFor="let item of itemList1 | paginate :{ itemsPerPage: 5, currentPage: a, id: 'a' } ">
+                <tr *ngFor="let item of itemList | paginate :config ">
                     <td>{{item.name}}</td>
                     <td>{{item.address}}</td>
                     <td>{{item.email}}</td>
@@ -55,62 +45,31 @@
                       </i></a></td>
                 </tr>
             </table>
-            <pagination-controls (pageChange)="a =$event"id="a"></pagination-controls>
+            <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
 
           </div>
          
         </div>
 <!-- **************************** -->
          
- 
+         <div class="container-fluid"> 
 
           
 
-   <div class="row" *ngIf="registeredcafe">
-             
+            <div class="row">
+
                 <!-- registered users -->
-                <div class="col-xl-6 col-lg-5" >
+  <app-usersinternetcafe></app-usersinternetcafe>
+  
+
+                <div class="col-xl-6 col-lg-5">
                     <div class="card shadow mb-4">
-                        <!-- Card Header - Dropdown -->
-                        <div class="card-header py-3 d-flex flex-row align--center justify-content-between">
-                            <h6 class="m-0 font-weight-bold text-primary">Registered internet cafe per user</h6>
-
-                        </div>
-                        <!-- Card Body -->
-
-                        <div class="card-body" *ngFor="let users of userList | paginate :{ itemsPerPage: 5, currentPage: b, id: 'b' } ">
-                            <div class="chart-area">
-
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-sm">
-                                            Name: {{users.username}}
-                                        </div>
-                                        <!-- {{users.username}} -->
-                                        <div class="col-sm">
-                                            <div class="col-sm" *ngFor="let item of itemList">
-                                                <div *ngIf="users.UserID == item.uid">
-                                                    {{item.name}}<br>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <pagination-controls (pageChange)="b =$event"id="b"></pagination-controls>
-                    </div>
-                    
-                </div>
-
-                <div class="col-xl-6 col-lg-5" *ngIf="registeredusers">
-                    <div class="card shadow mb-4" >
                      
                         <div class="card-header py-3 d-flex flex-row align--center justify-content-between">
                             <h6 class="m-0 font-weight-bold text-primary">List of registered users</h6>
                         </div>
 
-                        <div class="card-body" *ngFor="let users of userList | paginate :{ itemsPerPage: 5, currentPage: c, id: 'c' }">
+                        <div class="card-body" *ngFor="let users of userList">
                             <div class="container">
                                 <div class="row">
                                     <div class="col-sm">
@@ -126,18 +85,16 @@
 
                         </div>
                       
-  
-                        <pagination-controls (pageChange)="c =$event"id="c"></pagination-controls>
+    <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+    
               </div>
             </div>
-            
 </div>
             <!-- Content Row -->
-            <div class="row"*ngIf="statistic" >
+            <div class="row">
 
-                       <!-- pie chart for ethnicity statistics -->
-                <!-- <div class="stats" *ngIf="locations"> -->
-                <div class="col-xl-6 col-lg-4" >
+                <!-- pie chart for ethnicity statistics -->
+                <div class="col-xl-6 col-lg-4">
                     <div class="card shadow mb-4">
                         <!-- Card Header - Dropdown -->
                         <div class="card-header py-3 d-flex flex-row align--center justify-content-between">
@@ -179,10 +136,9 @@
                         </div>
                     </div>
                 </div>
+            </div>
 
-           
-
-        
+        </div>
 <!-- line graph -->
 <div class="col-xl-6 col-lg-4">
         <div class="card shadow mb-4">
@@ -204,9 +160,11 @@
             </div>
         </div>
     </div>
-  </div>
+        <!-- graph -->
+
+        <div>
+          
+        </div>
+
    
-        </body>
-      </div>
-   </html>
 

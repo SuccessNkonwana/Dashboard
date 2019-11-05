@@ -1,153 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
-    <mat-toolbar>
-        <!-- <h1>Internet Cafe App</h1> -->
-        
-      </mat-toolbar>
+
+
 <div class="sidenav">
     <img class="logo" src="assets/logo.png">
-    <a routerLink="/home()">Home</a>
-    <a (click)="Internertcafes()">Internet Cafes</a>
-    <a (click)="registeredcafes()">Registered Users</a>
-    <a (click)="statistics()">Statistics</a>
-   
-  </div>
-  <div class="main">
-<body id="page-top">
 
- <br>
- 
-        <div class="container-fluid"></div>
-        
-          <!-- Content Row -->
-          <!-- <div class="container" *ngIf="Internertcafe" > -->
-
-             
-            
-
-
-    
-        <!-- <div class="first">
-
- </div> -->
-      
- <div fxLayout fxLayoutAlign="center center" class="search" *ngIf="search">
-    <mat-form-field fxFlex="100%">
-      <input matInput type="text"  (keyup)="filterList($event)" placeholder="Search">
-    </mat-form-field>
-  </div>
-        <div class="row" *ngIf="Internertcafe">
-    
-          <div class="column" >
-            <table class="table table-striped custab ">
-                <thead>
-                    <tr class="m-0 font-weight-bold text-primary">
-                        <th>Internet Cafe Name</th>
-                        <th>Address</th>
-                        <th>Email</th>
-                        <th>Phone</th>
-                        <th class="text-center">Action</th>
-                    </tr>
-                </thead>
-                <tr *ngFor="let item of itemList | paginate :config ">
-                    <td>{{item.name}}</td>
-                    <td>{{item.address}}</td>
-                    <td>{{item.email}}</td>
-                    <td>{{item.phone}}</td>
-                    <td class="text-center"><a (click)="onDelete(item.key)" class="btn btn-light btn-xs"><span class="glyphicon glyphicon-remove"></span><i class="material-icons">
-                      delete
-                      </i></a></td>
-                    <td class="text-center"><a (click)="onUpdate(item)" class="btn btn-light  btn-xs"><span class="glyphicon glyphicon-remove"></span> <i class="material-icons">
-                      update
-                      </i></a></td>
-                    <td class="text-center"><a (click)="commentPage(item)" class="btn btn-light  btn-xs"><span class="glyphicon glyphicon-remove"></span> <i class="material-icons">
-                      comment
-                      </i></a></td>
-                </tr>
-            </table>
-            <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
-
-          </div>
-         
-        </div>
-<!-- **************************** -->
-         
- 
-
-          
-
-   <div class="row" *ngIf="registeredcafe">
-             
-                <!-- registered users -->
-                <div class="col-xl-6 col-lg-5" >
-                    <div class="card shadow mb-4">
-                        <!-- Card Header - Dropdown -->
-                        <div class="card-header py-3 d-flex flex-row align--center justify-content-between">
-                            <h6 class="m-0 font-weight-bold text-primary">Registered internet cafe per user</h6>
-
-                        </div>
-                        <!-- Card Body -->
-
-                        <div class="card-body" *ngFor="let users of userList | paginate :config ">
-                            <div class="chart-area">
-
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-sm">
-                                            Name: {{users.username}}
-                                        </div>
-                                        <!-- {{users.username}} -->
-                                        <div class="col-sm">
-                                            <div class="col-sm" *ngFor="let item of itemList">
-                                                <div *ngIf="users.UserID == item.uid">
-                                                    {{item.name}}<br>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <pagination-controls (pageChange)="pageChanged1($event)"></pagination-controls>
-                    </div>
-                    
-                </div>
-
-                <div class="col-xl-6 col-lg-5" *ngIf="registeredusers">
-                    <div class="card shadow mb-4" >
-                     
-                        <div class="card-header py-3 d-flex flex-row align--center justify-content-between">
-                            <h6 class="m-0 font-weight-bold text-primary">List of registered users</h6>
-                        </div>
-
-                        <div class="card-body" *ngFor="let users of userList">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-sm">
-                                        Name : {{users.username}}
-                                    </div>
-                                    <div class="col-sm">
-                                        Email : {{users.email}}
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-                      
-  
-                        <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
-              </div>
-            </div>
-            
+    <a routerLink="/home">Home</a>
+    <a href="#userstories">User stories</a>
+    <a href="#internetCafe">Internet cafes</a>
+    <a routerLink="/chart">Statistics</a>
 </div>
-            <!-- Content Row -->
-            <div class="row"*ngIf="statistic" >
+<div class="main">
 
-                       <!-- pie chart for ethnicity statistics -->
-                <!-- <div class="stats" *ngIf="locations"> -->
-                <div class="col-xl-6 col-lg-4" >
+    <body id="page-top">
+            <!-- Content Row -->
+            <div class="row">
+
+                <!-- pie chart for ethnicity statistics -->
+                <div class="col-xl-6 col-lg-4">
                     <div class="card shadow mb-4">
                         <!-- Card Header - Dropdown -->
                         <div class="card-header py-3 d-flex flex-row align--center justify-content-between">
@@ -189,10 +58,9 @@
                         </div>
                     </div>
                 </div>
+            </div>
 
-           
-
-        
+       
 <!-- line graph -->
 <div class="col-xl-6 col-lg-4">
         <div class="card shadow mb-4">
@@ -214,18 +82,11 @@
             </div>
         </div>
     </div>
-  </div>
         <!-- graph -->
 
-        <!-- <div> -->
-              
-            <!-- <div style="display: inline">
-                
-                <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType">
-     </canvas>
+</body>
+    
             </div>
-        </div> -->
-        </body>
-      </div>
-   </html>
+        
+   
 
