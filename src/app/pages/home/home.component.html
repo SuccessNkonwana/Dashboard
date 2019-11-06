@@ -80,18 +80,21 @@
                             <br>
                         <!-- <a href="#" class="btn btn-primary btn-xs pull-right"><b>+</b> Add new categories</a> -->
                             <tr class="m-0 font-weight-bold text-primary">
-                                <th>Commenter</th>
+                                <th>User</th>
                                 <th>Comment</th>
-                                <th>Date</th>
+                                <!-- <th>Date</th> -->
                                
                                 <th class="text-center">Action</th>
                             </tr>
                         </thead>
-                                <tr *ngFor="let comment of chatRef | async" class="cc">
+                                <tr *ngFor="let comment of list"  class="cc">
                                     <td><strong>{{comment.Name}}</strong></td>
                                     <td>{{comment.Message}}</td>
-                                    <td>{{comment.Timestamp}}</td>            
-                                    <td class="text-center"><a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+                                    <!-- <td>{{comment.Timestamp}}</td>             -->
+                                    <td class="text-center"><a (click)="Delete(item.key)" class="btn btn-light btn-xs"><span class="glyphicon glyphicon-remove"></span><i class="material-icons">
+                                            delete
+                                            </i></a></td>
+                    
                                 </tr>
                         </table>
                         </div>

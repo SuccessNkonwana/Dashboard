@@ -41,7 +41,7 @@ export class HomeComponent implements OnInit {
   statistic = true;
   search = true
   // home = false;
-
+  list: any;
   itemload: any[];
   loadedGoalList: any[];
   itemList1: any;
@@ -453,7 +453,20 @@ this.search = true;
   }
   open(content,item) {
     console.log(item)
-    this.chatRef = this.firestore.collection('comments', ref => ref.orderBy('Timestamp').where('key', '==', item.key )).valueChanges();
+   
+
+    this.firestore.collection('comments', ref => ref.orderBy('Timestamp').where('internetKey', '==', item.key )).snapshotChanges().subscribe( data => {
+      this.list = data.map(e => {
+        return {
+          key: e.payload.doc.id,
+          ...e.payload.doc.data()
+        } 
+      });
+
+      console.log("comment list",this.list)
+
+     })
+    
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       console.log("hhhhhhh")
       this.closeResult = `Closed with: ${result}`;

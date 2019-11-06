@@ -22,6 +22,7 @@
         background-color: #689ACA;
         overflow-x: hidden;
         padding-top: 20px;
+        display: block;
       }
       
       .sidenav a {
@@ -34,6 +35,7 @@
       
       .sidenav a:hover {
         color: #f1f1f1;
+        display: block;
       }
       
       .main {
@@ -85,7 +87,7 @@ h1{
 }
 /* Create two equal columns that floats next to each other */
 .column {
-  float: right;
+  // float: right;
   width: 100%;
   padding: 10px;
 margin:20px;
@@ -117,7 +119,25 @@ width: 500ypx;
 }
 .theBody{
 
-  padding:2%
+  padding-left:2%;
+  padding-right:2%;
 }
-
-
+.theBody1{
+  margin-top:-4%;
+  // padding-left:3%;
+ 
+  
+}
+.centert{
+  width: 70%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.theBody2{
+  margin-top:-4%;
+  padding:3%;
+}
+tfoot{
+  text-align: right;
+}
