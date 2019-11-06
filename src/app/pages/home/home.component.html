@@ -9,7 +9,7 @@
     <br><br><br>
     <a (click)="Home()">Home</a>
     <a (click)="Internertcafes()">Internet Cafes</a>
-    <a (click)="registeredcafes()">Registered Users</a>
+    <a (click)="registeredcafes()">Users</a>
     <a (click)="statistics()">Statistics</a>
    
   </div>
@@ -29,7 +29,7 @@
   </div>
         <div class="row" *ngIf="Internertcafe">
     
-          <div class="column" >
+          <div class="column"  >
             <table class="table table-striped custab ">
                 <thead>
                     <tr class="m-0 font-weight-bold text-primary">
@@ -37,7 +37,8 @@
                         <th>Address</th>
                         <th>Email</th>
                         <th>Phone</th>
-                        <th class="text-center">Action</th>
+                        <th class="text-center" colspan="3">Action</th>
+                       
                     </tr>
                 </thead>
                 <tr *ngFor="let item of itemList1 | paginate :{ itemsPerPage: 5, currentPage: a, id: 'a' } ">
@@ -54,86 +55,66 @@
                     <td class="text-center"><a (click)="commentPage(item)" class="btn btn-light  btn-xs"><span class="glyphicon glyphicon-remove"></span> <i class="material-icons">
                       comment
                       </i></a></td>
+                      
                 </tr>
+                <tfoot>
+                    <tr><td colspan="7">
+                        <pagination-controls (pageChange)="a =$event"id="a"></pagination-controls>
+                    </td>
+                    </tr>
+                        </tfoot>
+                   
             </table>
-            <pagination-controls (pageChange)="a =$event"id="a"></pagination-controls>
+            
 
           </div>
          
         </div>
+    </div>
 <!-- **************************** -->
-         
- 
-
-          
-
-   <div class="row" *ngIf="registeredcafe">
-             
-                <!-- registered users -->
-                <div class="col-xl-6 col-lg-5" >
-                    <div class="card shadow mb-4">
-                        <!-- Card Header - Dropdown -->
-                        <div class="card-header py-3 d-flex flex-row align--center justify-content-between">
-                            <h6 class="m-0 font-weight-bold text-primary">Registered internet cafe per user</h6>
-
-                        </div>
-                        <!-- Card Body -->
-
-                        <div class="card-body" *ngFor="let users of userList | paginate :{ itemsPerPage: 5, currentPage: b, id: 'b' } ">
-                            <div class="chart-area">
-
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-sm">
-                                            Name: {{users.username}}
-                                        </div>
-                                        <!-- {{users.username}} -->
-                                        <div class="col-sm">
-                                            <div class="col-sm" *ngFor="let item of itemList">
-                                                <div *ngIf="users.UserID == item.uid">
-                                                    {{item.name}}<br>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <pagination-controls (pageChange)="b =$event"id="b"></pagination-controls>
-                    </div>
-                    
+<div class="theBody1">
+<div class="row" *ngIf="registeredcafe">
+    
+    <div class="col-xl-10 col-lg-8 centert" >
+    <div class="column" >
+      <table class="table table-striped custab ">
+          <thead>
+              <tr class="m-0 font-weight-bold text-primary">
+                  <th>Name</th>
+                  <th>Email Address</th>
+                  <th>Internet Cafe Name</th>
+              </tr>
+          </thead>
+          <tr *ngFor="let users of userList | paginate :{ itemsPerPage: 5, currentPage: b, id: 'b' } ">
+              <td>{{users.username}}</td>
+              <td>{{users.email}}</td>
+              <td>  
+                  <div *ngFor="let item of itemList">
+                <div *ngIf="users.UserID == item.uid">
+                    {{item.name}}<br>
                 </div>
 
-                <div class="col-xl-6 col-lg-5" *ngIf="registeredusers">
-                    <div class="card shadow mb-4" >
-                     
-                        <div class="card-header py-3 d-flex flex-row align--center justify-content-between">
-                            <h6 class="m-0 font-weight-bold text-primary">List of registered users</h6>
-                        </div>
+            </div></td>
+        
+          </tr>
+          <tfoot>
+                <tr><td colspan="3">
+                        <pagination-controls (pageChange)="b =$event"id="b"></pagination-controls>
+                </td>
+                </tr>
+                    </tfoot>
+               
+      </table>
+      
 
-                        <div class="card-body" *ngFor="let users of userList | paginate :{ itemsPerPage: 5, currentPage: c, id: 'c' }">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-sm">
-                                        Name : {{users.username}}
-                                    </div>
-                                    <div class="col-sm">
-                                        Email : {{users.email}}
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-                      
-  
-                        <pagination-controls (pageChange)="c =$event"id="c"></pagination-controls>
-              </div>
-            </div>
-            
+    </div>
 </div>
+   
+  </div>
+    </div>     
+ <!--***********************************************************-->
             <!-- Content Row -->
+            <div class="theBody2">
             <div class="row"*ngIf="statistic" >
 
                        <!-- pie chart for ethnicity statistics -->
