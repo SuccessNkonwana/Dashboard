@@ -1,0 +1,16 @@
+<agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="12" >
+    
+    
+  <agm-marker *ngFor="let point of pointList" [latitude]="point.position.geopoint.latitude" [longitude]="point.position.geopoint.longitude">
+ 
+    <agm-info-window>
+        {{point.name}}<br>
+            <p>
+         <a (click)="seeMore(point)">see more</a>
+             </p>
+        
+    </agm-info-window>
+
+  </agm-marker>
+
+</agm-map>
