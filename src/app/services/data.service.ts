@@ -23,6 +23,9 @@ export class DataService {
   delete(key){
     this.db.doc('localCafe/' + key).delete();
   }
+  deleteComment(key){
+    this.db.doc('comments/' + key).delete();
+  }
   update(item, key) {
     this.itemDoc = this.db.doc<InternetCafe>('localCafe/' + key);
     this.itemDoc.update(item);

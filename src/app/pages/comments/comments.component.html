@@ -25,12 +25,13 @@
                 <th class="text-center">Action</th>
             </tr>
         </thead>
-                <tr *ngFor="let comment of chatRef | async" class="cc">
+                <tr *ngFor="let comment of list" class="cc">
                     <td><strong>{{comment.Name}}</strong></td>
                     <td>{{comment.Message}}</td>
                     <td>{{comment.Timestamp}}</td>
+                    <td></td>
                    
-                    <td class="text-center"><a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+                    <td class="text-center" (click)="onDelete(comment)"><a class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
                 </tr>
                
         </table>
