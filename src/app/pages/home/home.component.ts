@@ -7,6 +7,9 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Chart } from 'chart.js'
 import { ChartService } from 'src/app/services/chart.service';
+import { ModalModule } from 'ngb-modal';
+
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-home',
@@ -14,6 +17,7 @@ import { ChartService } from 'src/app/services/chart.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  closeResult: string;
   itemList: any[];
   userList: any[];
   cafes: any;
@@ -30,7 +34,7 @@ export class HomeComponent implements OnInit {
   girl: number = 0;
   other: number = 0;
   item1: any;
-
+  chatRef
   Internertcafe = true;
   registeredcafe = true;
   registereduser = true;
@@ -42,7 +46,7 @@ export class HomeComponent implements OnInit {
   loadedGoalList: any[];
   itemList1: any;
   configUser: { itemsPerPage: number; currentPage: number; totalItems: any; };
-  constructor(private dataService: DataService, private router: Router, private firestore: AngularFirestore) {
+  constructor(private dataService: DataService, private router: Router, private firestore: AngularFirestore,private modalService: NgbModal ) {
     this.dataService.getItemChanges().subscribe(data => {
       this.itemList1 = data.map(e => {
         return {
@@ -357,6 +361,7 @@ export class HomeComponent implements OnInit {
     this.dataService.delete(key);
     alert("Internet Cafe deleted");
   }
+
   onUpdate(item) {
     this.router.navigate(['/update'], { queryParams: { key: item.key, name: item.name, address: item.address, email: item.email, phone: item.phone } })
   }
@@ -446,4 +451,27 @@ this.search = true;
     this.Internertcafe = true;
     this.search = true;
   }
+  open(content,item) {
+    console.log(item)
+    this.chatRef = this.firestore.collection('comments', ref => ref.orderBy('Timestamp').where('key', '==', item.key )).valueChanges();
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      console.log("hhhhhhh")
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+
+    console.log("info object",item);
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return  `with: ${reason}`;
+    }
+  }
 }
+

@@ -1,10 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {NgxPaginationModule} from 'ngx-pagination'; 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
 import { UpdateComponent } from './pages/update/update.component';
+import { ModalModule } from 'ngb-modal';
 // import { MDBBootstrapModulesPro, MDBSpinningPreloader } from 'ng-uikit-pro-standard';
 import {AccordionModule} from 'ng-uikit';
 import { HomeComponent } from './pages/home/home.component';
@@ -16,6 +18,7 @@ import { ChartsModule } from 'ng2-charts';
 import { ReactiveFormsModule } from '@angular/forms';
 import {FormsModule} from '@angular/forms';
 import { ChartComponent } from './pages/chart/chart.component';
+
 // import { AngularFireDatabase} from 'angularfire2/database';
 //import { ChartsModule } from 'ng2-charts/ng2-charts';
 // import { Chart } from 'chart.js'
@@ -78,7 +81,8 @@ const firebaseConfig = {
     HomeComponent,
     CommentsComponent,
     UpdateComponent,
-    ChartComponent
+    ChartComponent,
+ 
 
   ],
   imports: [
@@ -117,7 +121,8 @@ const firebaseConfig = {
     MatTooltipModule,
     FormsModule,NgxPaginationModule,BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [AngularFireAuth,ChartService],
   bootstrap: [AppComponent]
