@@ -17,6 +17,15 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { ChartsModule } from 'ng2-charts';
 import { ReactiveFormsModule } from '@angular/forms';
 import {FormsModule} from '@angular/forms';
+<<<<<<< HEAD
+import { MapComponent } from './map/map.component';
+import { AgmCoreModule } from '@agm/core';
+//import { ChartsModule } from 'ng2-charts/ng2-charts';
+// import { Chart } from 'chart.js'
+import * as firebase from 'firebase';
+
+
+=======
 import { ChartComponent } from './pages/chart/chart.component';
 
 // import { AngularFireDatabase} from 'angularfire2/database';
@@ -64,6 +73,7 @@ import { UsersinternetcafeComponent } from './pages/usersinternetcafe/usersinter
 import {enableProdMode} from '@angular/core'
 // import {enableProdMode} from 'angular2/core';
 enableProdMode();
+>>>>>>> 902759ea8c4007343aff812766dd653d2e599bc2
 
 const firebaseConfig = {
   apiKey: "AIzaSyA-kTR7fRDa0qxM0hBMROLG8APChD8RTxY",
@@ -73,7 +83,11 @@ const firebaseConfig = {
   storageBucket: "internetcafe-8ab2b.appspot.com",
   messagingSenderId: "194688123148",
   appId: "1:194688123148:web:0329ce7412e2b9ad2d4929"
+
+
 }; 
+
+firebase.initializeApp(firebaseConfig);
 @NgModule({
   declarations: [
     AppComponent,
@@ -81,8 +95,23 @@ const firebaseConfig = {
     HomeComponent,
     CommentsComponent,
     UpdateComponent,
+<<<<<<< HEAD
     ChartComponent,
  
+=======
+<<<<<<< HEAD
+    MapComponent,
+    
+  ],
+  imports: [
+    BrowserModule, AngularFireModule.initializeApp(firebaseConfig),AngularFirestoreModule,ChartsModule,ReactiveFormsModule,
+    FormsModule,NgxPaginationModule,
+    AppRoutingModule,  AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCd0QW8pbjAyI48NtgodmHK7qeilaUquXA'
+    })
+=======
+    ChartComponent
+>>>>>>> 96d64142d8eeda68f37c99de18385c3dae580320
 
   ],
   imports: [
@@ -121,8 +150,13 @@ const firebaseConfig = {
     MatTooltipModule,
     FormsModule,NgxPaginationModule,BrowserModule,
     HttpClientModule,
+<<<<<<< HEAD
     AppRoutingModule,
     NgbModule
+=======
+    AppRoutingModule
+>>>>>>> 902759ea8c4007343aff812766dd653d2e599bc2
+>>>>>>> 96d64142d8eeda68f37c99de18385c3dae580320
   ],
   providers: [AngularFireAuth,ChartService],
   bootstrap: [AppComponent]
