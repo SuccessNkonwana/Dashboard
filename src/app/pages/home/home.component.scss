@@ -118,13 +118,13 @@ width: 500ypx;
   padding-right: 3%;
 }
 .theBody{
-
+ 
   padding-left:2%;
   padding-right:2%;
 }
 .theBody1{
-  margin-top:-4%;
-  // padding-left:3%;
+  margin-top:-1%;
+  text-align: center;
  
   
 }
@@ -137,7 +137,17 @@ width: 500ypx;
 .theBody2{
   margin-top:-4%;
   padding:3%;
+ 
 }
 tfoot{
   text-align: right;
+}
+.header{
+  text-align: center;
+}
+.spacing{
+  padding-left: 10%;
+}
+.text-center{
+  text-align: center;
 }

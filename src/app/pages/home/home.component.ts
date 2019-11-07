@@ -367,7 +367,31 @@ export class HomeComponent implements OnInit {
       }
     });
   }
+  initializeItems2(): void {
+    this.userList = this.itemload;
+  }
+  filterList2(evt) {
+    this.initializeItems2();
 
+    const searchTerm = evt.srcElement.value;
+
+    if (!searchTerm) {
+      return;
+    }
+
+    this.userList = this.userList.filter(data => {
+      if (data.username 
+        || data.email && searchTerm) {
+        if (data.username.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1) {
+          return true;
+        }
+        if (data.email.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1) {
+          return true;
+        }
+        return false;
+      }
+    });
+  }
   onDelete(key) {
     this.dataService.delete(key);
     alert("Internet Cafe deleted");
@@ -501,5 +525,8 @@ this.search = true;
      this.dataService.deleteComment(comment.key)
     alert("comment deleted");
    }
+   logout(){
+    this.router.navigateByUrl('/');
+  }
 }
 

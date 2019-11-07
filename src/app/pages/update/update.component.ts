@@ -44,5 +44,7 @@ export class UpdateComponent implements OnInit {
     alert("Item updated");
     this.router.navigateByUrl('home')
   }
-
+  goHome(){
+    this.router.navigateByUrl('/home');
+  }
 }
