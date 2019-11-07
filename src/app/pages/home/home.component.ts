@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 import { InternetCafe } from 'src/app/module/internetCafe';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
@@ -10,6 +10,7 @@ import { ChartService } from 'src/app/services/chart.service';
 import { ModalModule } from 'ngb-modal';
 
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-home',
@@ -17,6 +18,14 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+
+  key: any;
+  commentRef: any;
+  Timestamp;
+  chatRef: any;
+  list: any;
+  Thecollection: any;
+
   closeResult: string;
   itemList: any[];
   userList: any[];
@@ -34,19 +43,19 @@ export class HomeComponent implements OnInit {
   girl: number = 0;
   other: number = 0;
   item1: any;
-  chatRef
+
   Internertcafe = true;
   registeredcafe = true;
   registereduser = true;
   statistic = true;
   search = true
   // home = false;
-  list: any;
   itemload: any[];
   loadedGoalList: any[];
   itemList1: any;
   configUser: { itemsPerPage: number; currentPage: number; totalItems: any; };
-  constructor(private dataService: DataService, private router: Router, private firestore: AngularFirestore,private modalService: NgbModal ) {
+  constructor(private dataService: DataService, private router: Router, private firestore: AngularFirestore,private modalService: NgbModal,
+    private route:ActivatedRoute,public afAuth: AngularFireAuth) {
     this.dataService.getItemChanges().subscribe(data => {
       this.itemList1 = data.map(e => {
         return {
@@ -109,6 +118,7 @@ export class HomeComponent implements OnInit {
   mb: number = 0; fb: number = 0; ob: number = 0;
 
   ngOnInit() {
+    
   this.char()
   }
   char(){
@@ -117,10 +127,11 @@ export class HomeComponent implements OnInit {
       this.itemList = itemList;
 
     });
+    
 
   // this.users = this.firestore.collection('users').valueChanges();
   // console.log(this.users)
-
+  
 
   this.firestore.collection('users').valueChanges().subscribe((data: any) => {
     //  console.log(data)
@@ -468,7 +479,7 @@ this.search = true;
      })
     
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-      console.log("hhhhhhh")
+     
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
@@ -486,5 +497,9 @@ this.search = true;
       return  `with: ${reason}`;
     }
   }
+  theDelete(comment){
+     this.dataService.deleteComment(comment.key)
+    alert("comment deleted");
+   }
 }
 
