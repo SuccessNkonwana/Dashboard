@@ -17,11 +17,11 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { ChartsModule } from 'ng2-charts';
 import { ReactiveFormsModule } from '@angular/forms';
 import {FormsModule} from '@angular/forms';
-import { MapComponent } from './map/map.component';
-import { AgmCoreModule } from '@agm/core';
+import { ChartComponent } from './pages/chart/chart.component';
+
+// import { AngularFireDatabase} from 'angularfire2/database';
 //import { ChartsModule } from 'ng2-charts/ng2-charts';
 // import { Chart } from 'chart.js'
-import * as firebase from 'firebase';
 import {
   MatAutocompleteModule,
   MatButtonModule,
@@ -56,7 +56,16 @@ import {
   MatToolbarModule,
   MatTooltipModule,
 } from '@angular/material';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
+import {  HttpClientModule } from '@angular/common/http';
+import { ChartService } from './services/chart.service';
+import { InternetCafeComponent } from './pages/internet-cafe/internet-cafe.component';
+import { UsersinternetcafeComponent } from './pages/usersinternetcafe/usersinternetcafe.component';
+import {enableProdMode} from '@angular/core'
+import * as firebase from 'firebase';
+import { AgmCoreModule } from '@agm/core';
+// import {enableProdMode} from 'angular2/core';
+enableProdMode();
 
 const firebaseConfig = {
   apiKey: "AIzaSyA-kTR7fRDa0qxM0hBMROLG8APChD8RTxY",
@@ -78,15 +87,15 @@ firebase.initializeApp(firebaseConfig);
     HomeComponent,
     CommentsComponent,
     UpdateComponent,
-    MapComponent
 
-    
+    ChartComponent,
+ 
+
   ],
   imports: [
     BrowserModule, AngularFireModule.initializeApp(firebaseConfig),AngularFirestoreModule,ChartsModule,ReactiveFormsModule,
-    FormsModule,NgxPaginationModule,
-    MatAutocompleteModule,
-    MatButtonModule,
+    FormsModule,NgxPaginationModule,  MatAutocompleteModule,
+    MatButtonModule,FlexLayoutModule,
     MatButtonToggleModule,
     MatCardModule,
     MatCheckboxModule,
@@ -121,8 +130,11 @@ firebase.initializeApp(firebaseConfig);
     NgbModule ,
     AppRoutingModule,  AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCd0QW8pbjAyI48NtgodmHK7qeilaUquXA'
-    })
+    }),
 
+    HttpClientModule,
+    AppRoutingModule,
+    NgbModule
 
   ],
   providers: [AngularFireAuth,],

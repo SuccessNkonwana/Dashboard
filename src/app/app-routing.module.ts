@@ -6,6 +6,7 @@ import { CommentsComponent } from './pages/comments/comments.component';
 import { UpdateComponent } from './pages/update/update.component';
 import { MapComponent } from './map/map.component';
 
+import { ChartComponent } from './pages/chart/chart.component';
 
 
 const routes: Routes = [
@@ -13,8 +14,10 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'comments', component: CommentsComponent},
   {path: 'update', component: UpdateComponent},
-  {path: 'map', component: MapComponent}
+  {path: 'map', component: MapComponent},
   
+  {path: 'Chart', component: ChartComponent}
+
 ];
 
 @NgModule({
