@@ -164,50 +164,45 @@
       </div>
         </div>
 
-<ng-template #content let-modal>
-    <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">Comments</h4>
-      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">    
-                <div class="container" >
-                        <div class="row col-md-12 col-md-offset-2 custyle">
-                        <table class="table table-striped custab">
-                        <thead>
-                            <br>
-                        <!-- <a href="#" class="btn btn-primary btn-xs pull-right"><b>+</b> Add new categories</a> -->
-                            <tr class="m-0 font-weight-bold text-primary">
-                                <th>User</th>
-                                <th>Comment</th>
-                                <!-- <th>Date</th> -->
-                               
-                                <th class="text-center">Action</th>
-                            </tr>
-                        </thead>
-                                <tr *ngFor="let comment of list"  class="cc">
-                                    <td><strong>{{comment.Name}}</strong></td>
-                                    <td>{{comment.Message}}</td>
-                                    <!-- <td>{{comment.Timestamp}}</td>             -->
-                                    <td class="text-center"><a (click)="theDelete(comment)" class="btn btn-light btn-xs"><span class="glyphicon glyphicon-remove"></span><i class="material-icons">
-                                            delete
-                                            </i></a></td>                   
-                                </tr>
-                        </table>
-                        </div>
-                    </div>
-    </div>
-  </ng-template>
+        <ng-template #content let-modal>
+                <div class="modal-header">
+                  <h4 class="modal-title" id="modal-basic-title">Comments</h4>
+                  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                            <div class="container" >
+                                    <div class="row col-md-12 col-md-offset-2 custyle">
+                                    <table class="table table-striped custab">
+                                    <thead>
+                                        <br>
+                                    <!-- <a href="#" class="btn btn-primary btn-xs pull-right"><b>+</b> Add new categories</a> -->
+                                        <tr class="m-0 font-weight-bold text-primary">
+                                            <th>User</th>
+                                            <th>Comment</th>
+                                            <!-- <th>Date</th> -->
+                                            <th class="text-center">Action</th>
+                                        </tr>
+                                    </thead>
+                                            <tr *ngFor="let comment of list"  class="cc">
+                                                <td><strong>{{comment.Name}}</strong></td>
+                                                <td>{{comment.Message}}</td>
+                                                <!-- <td>{{comment.Timestamp}}</td>             -->
+                                                <td class="text-center"><a (click)="theDelete(comment)" class="btn btn-light btn-xs"><span class="glyphicon glyphicon-remove"></span><i class="material-icons">
+                                                        delete
+                                                        </i></a></td>
+                                            </tr>
+                                    </table>
+                                    </div>
+                                </div>
+                </div>
+               
+              </ng-template>
 
 </div>
-<<<<<<< HEAD
-<!-- <app-map></app-map> -->
-<div class="app-map"></div>
-=======
         </body>
       
     </div>
    </html>
->>>>>>> 902759ea8c4007343aff812766dd653d2e599bc2
 
